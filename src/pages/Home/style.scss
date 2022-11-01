@@ -1,20 +1,51 @@
 .Home {
   .banner {
-    border: solid green 2px;
-    height: 50vh;
+    // border: solid green 2px;
+    height: 65vh;
     display: flex;
     align-items: center;
 
     img {
       width: 100vw;
-      height: 50vh;
+      height: 65vh;
       object-fit: cover;
       position: absolute;
       z-index: -1;
     }
     .sell-adv {
-      border: solid red 1px;
+      //   border: solid red 1px;
+      display: flex;
+      justify-content: flex-start;
       height: 35vh;
+
+      .adv {
+        // border: yellow 1px solid;
+        width: 25vw;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        border-radius: 5px;
+
+        .content {
+          width: 80%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 5vh;
+          .title-adv {
+            width: 90%;
+            font-size: 40px;
+          }
+          .button-adv {
+            width: 100%;
+            height: 5vh;
+            background-color: #007783;
+            color: white;
+            border: none;
+            border-radius: 5px;
+          }
+        }
+      }
     }
   }
 }
