@@ -1,0 +1,20 @@
+.Home {
+  .banner {
+    border: solid green 2px;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 100vw;
+      height: 50vh;
+      object-fit: cover;
+      position: absolute;
+      z-index: -1;
+    }
+    .sell-adv {
+      border: solid red 1px;
+      height: 35vh;
+    }
+  }
+}

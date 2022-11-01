@@ -3,11 +3,11 @@
   height: 7vh;
   display: flex;
   align-items: center;
-  border-bottom: solid lightgray 1px;
+  border-bottom: solid lightgray 0.5px;
 
   .header-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     img {
       width: 5.5vw;
       height: 4vh;
@@ -35,18 +35,18 @@
       gap: 0.5vw;
       .log-buttons {
         background-color: white;
-        color: #2aaeb7;
-        border: solid #2aaeb7 1px;
+        color: #007783;
+        border: solid #007783 1px;
         border-radius: 5px;
-        width: 10vw;
+        width: 9vw;
       }
     }
     .sell-header {
-      background-color: #2aaeb7;
+      background-color: #007783;
       color: white;
       border: none;
       border-radius: 5px;
-      width: 10vw;
+      width: 9vw;
     }
   }
 }
