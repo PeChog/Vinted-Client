@@ -1,10 +1,30 @@
+import { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import Banner from "../../assets/images/banner.jpg";
 
 import "./style.scss";
+import axios from "axios";
 
 const Home = () => {
-  return (
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://lereacteur-vinted-api.herokuapp.com/offers"
+        );
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+    fetchData();
+  }, []);
+  return isLoading ? (
+    <div>en cours de chargement</div>
+  ) : (
     <div className="Home">
       <Header />
       <div className="banner">
@@ -19,6 +39,41 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="offers container">
+        {data.offers.map((offer) => {
+          return (
+            <div className="offer-card" key={offer._id}>
+              <div className="offer-card-container">
+                <div className="user-offer">
+                  {offer.owner && offer.owner.account.avatar && (
+                    <img alt="userImg" src={offer.owner.account.avatar.url} />
+                  )}
+
+                  <span>{offer.owner.account.username}</span>
+                </div>
+
+                <img
+                  alt="offerImg"
+                  src={offer.product_image.secure_url}
+                  className="offer-pic"
+                />
+
+                <div>
+                  <span>{offer.product_price} €</span>
+                  {offer.product_details.map((detail, index) => {
+                    return (
+                      <div key={index}>
+                        <span>{detail.TAILLE}</span>
+                        <span>{detail.MARQUE}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
