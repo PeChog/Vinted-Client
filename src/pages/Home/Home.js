@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Banner from "../../assets/images/banner.jpg";
 
@@ -52,12 +53,13 @@ const Home = () => {
 
                   <span>{offer.owner.account.username}</span>
                 </div>
-
-                <img
-                  alt="offerImg"
-                  src={offer.product_image.secure_url}
-                  className="offer-pic"
-                />
+                <Link to={`/offer/${offer._id}`}>
+                  <img
+                    alt="offerImg"
+                    src={offer.product_image.secure_url}
+                    className="offer-pic"
+                  />
+                </Link>
 
                 <div>
                   <span>{offer.product_price} €</span>

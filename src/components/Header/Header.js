@@ -1,4 +1,5 @@
 import Logo from "../../assets/images/Vinted_logo.png";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./style.scss";
@@ -7,7 +8,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-content container">
-        <img alt="logo" src={Logo} />
+        <Link to="/">
+          <img alt="logo" src={Logo} />
+        </Link>
         <div className="search">
           <FontAwesomeIcon
             icon="fa-solid fa-magnifying-glass"
