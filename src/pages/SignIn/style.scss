@@ -1,0 +1,17 @@
+.signin-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 94vh;
+  width: 100vw;
+  .form-container {
+    background-color: red;
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border: solid green 1px;
+    }
+  }
+}

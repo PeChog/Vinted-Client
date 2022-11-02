@@ -20,8 +20,12 @@ const Header = () => {
         </div>
 
         <div className="log-buttons-cont">
-          <button className="log-buttons">S'inscrire</button>
-          <button className="log-buttons">Se connecter</button>
+          <Link to="/signup">
+            <button className="log-buttons">S'inscrire</button>
+          </Link>
+          <Link to="/signin">
+            <button className="log-buttons">Se connecter</button>
+          </Link>
         </div>
         <button className="sell-header">Vends tes articles</button>
       </div>
