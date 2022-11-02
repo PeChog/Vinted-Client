@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./style.scss";
 
-const Header = ({ userToken, handleToken }) => {
+const Header = ({ userToken, handleToken, setSearch }) => {
   return (
     <div className="header">
       <div className="header-content container">
@@ -16,7 +16,12 @@ const Header = ({ userToken, handleToken }) => {
             icon="fa-solid fa-magnifying-glass"
             className="icon"
           />
-          <input placeholder="Rechercher des articles" />
+          <input
+            placeholder="Rechercher des articles"
+            onChange={(event) => {
+              setSearch(event.target.value);
+            }}
+          />
         </div>
 
         <div className="log-buttons-cont">

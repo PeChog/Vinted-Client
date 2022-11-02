@@ -1,29 +1,10 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Banner from "../../assets/images/banner.jpg";
 
 import "./style.scss";
-import axios from "axios";
 
-const Home = () => {
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
-        );
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error.response);
-      }
-    };
-    fetchData();
-  }, []);
+const Home = ({ isLoading, data }) => {
   return isLoading ? (
     <div>en cours de chargement</div>
   ) : (
