@@ -8,6 +8,7 @@ const SignIn = ({ handleToken }) => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/login",
@@ -18,6 +19,7 @@ const SignIn = ({ handleToken }) => {
       );
       handleToken(response.data.token);
       navigate("/");
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -30,6 +32,7 @@ const SignIn = ({ handleToken }) => {
         <div className="form-container">
           <form onSubmit={handleSubmit}>
             <input
+              value={email}
               type="email"
               placeholder="Email"
               onChange={(event) => {
@@ -37,6 +40,7 @@ const SignIn = ({ handleToken }) => {
               }}
             />
             <input
+              value={password}
               type="password"
               placeholder="Mot de passe"
               onChange={(event) => {

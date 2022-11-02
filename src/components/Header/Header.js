@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./style.scss";
 
-const Header = () => {
+const Header = ({ userToken, handleToken }) => {
   return (
     <div className="header">
       <div className="header-content container">
@@ -20,12 +20,25 @@ const Header = () => {
         </div>
 
         <div className="log-buttons-cont">
-          <Link to="/signup">
-            <button className="log-buttons">S'inscrire</button>
-          </Link>
-          <Link to="/signin">
-            <button className="log-buttons">Se connecter</button>
-          </Link>
+          {userToken ? (
+            <button
+              className="log-buttons"
+              onClick={() => {
+                handleToken();
+              }}
+            >
+              Déconnexion
+            </button>
+          ) : (
+            <>
+              <Link to="/signup">
+                <button className="log-buttons">S'inscrire</button>
+              </Link>
+              <Link to="/signin">
+                <button className="log-buttons">Se connecter</button>
+              </Link>
+            </>
+          )}
         </div>
         <button className="sell-header">Vends tes articles</button>
       </div>

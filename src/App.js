@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Cookies from "js-cookie";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -14,16 +15,20 @@ import "./App.scss";
 library.add(faMagnifyingGlass);
 
 function App() {
+  const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
+
   const handleToken = (token) => {
     if (token) {
       Cookies.set("userToken", token, { expires: 7 });
+      setUserToken(token);
     } else {
       Cookies.remove("userToken");
+      setUserToken(null);
     }
   };
   return (
     <Router>
-      <Header handleToken={handleToken} />
+      <Header handleToken={handleToken} userToken={userToken} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp handleToken={handleToken} />} />
