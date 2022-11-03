@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignIn/SignIn";
 import Offer from "./pages/Offer/Offer";
 import Publish from "./pages/Publish/Publish";
+import Payment from "./pages/Payment/Payment";
 
 import "./App.scss";
 
@@ -56,6 +57,7 @@ function App() {
         <Route path="/signin" element={<SignIn handleToken={handleToken} />} />
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="/publish" element={<Publish userToken={userToken} />} />
+        <Route path="/payment" element={<Payment userToken={userToken} />} />
       </Routes>
     </Router>
   );

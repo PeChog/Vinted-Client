@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import "./style.scss";
 
@@ -8,6 +8,7 @@ const Offer = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
+  // const navigate = useNavigate();
   // console.log(id);
 
   useEffect(() => {
@@ -64,7 +65,15 @@ const Offer = () => {
                   {/* )} */}
                   <span>{data.owner.account.username}</span>
                 </div>
-                <button>Acheter</button>
+                <Link
+                  to="/payment"
+                  state={{
+                    productName: data.product_name,
+                    price: data.product_price,
+                  }}
+                >
+                  <button>Acheter</button>
+                </Link>
               </section>
             </div>
           </section>
