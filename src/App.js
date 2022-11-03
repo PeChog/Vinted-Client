@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,9 +10,9 @@ import Home from "./pages/Home/Home";
 import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignIn/SignIn";
 import Offer from "./pages/Offer/Offer";
+import Publish from "./pages/Publish/Publish";
 
 import "./App.scss";
-import axios from "axios";
 
 library.add(faMagnifyingGlass);
 
@@ -54,6 +55,7 @@ function App() {
         <Route path="/signup" element={<SignUp handleToken={handleToken} />} />
         <Route path="/signin" element={<SignIn handleToken={handleToken} />} />
         <Route path="/offer/:id" element={<Offer />} />
+        <Route path="/publish" element={<Publish userToken={userToken} />} />
       </Routes>
     </Router>
   );

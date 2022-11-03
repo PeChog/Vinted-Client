@@ -18,7 +18,9 @@ const Home = ({ isLoading, data }) => {
                 <h1 className="title-adv">
                   Prêts à faire du tri dans vos placards
                 </h1>
-                <button className="button-adv">Vends maintenant</button>
+                <Link to="/publish">
+                  <button className="button-adv">Vends maintenant</button>
+                </Link>
               </div>
             </div>
           </div>
