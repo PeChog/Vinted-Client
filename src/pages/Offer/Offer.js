@@ -56,11 +56,11 @@ const Offer = () => {
                   style={{ display: "flex", alignItems: "center", gap: "1vw" }}
                 >
                   {/* {data.owner && data.owner.avatar && ( */}
-                  <img
+                  {/* <img
                     alt="offer-profil-pic"
                     src={data.owner.account.avatar.url}
                     className="offer-profil-pic"
-                  />
+                  /> */}
                   {/* )} */}
                   <span>{data.owner.account.username}</span>
                 </div>
