@@ -1,17 +1,50 @@
 .signin-page {
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
+  margin-top: 6vh;
   height: 94vh;
   width: 100vw;
-  .form-container {
-    background-color: red;
+  .form-container-signIn {
+    // background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25vw;
+    h1 {
+      font-size: 2.3vw;
+    }
     form {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      border: solid green 1px;
+      // border: solid green 1px;
+      .inputs-text {
+        border: none;
+        margin-top: 6vh;
+        width: 22vw;
+        border-bottom: gray solid 1px;
+        font-size: 1.1vw;
+        outline: none;
+      }
+      .login {
+        margin-top: 6vh;
+        background-color: #007783;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        height: 5.3vh;
+      }
+    }
+    .toSignUp {
+      text-decoration: none;
+      margin-top: 3vh;
+      span {
+        font-size: 1vw;
+        color: #007783;
+      }
     }
   }
 }

@@ -57,17 +57,19 @@ const Publish = ({ userToken }) => {
 
   return userToken ? (
     <div className="publish-page">
-      <div className="publish-container container">
+      <div className="publish-container container ">
         <h1>Vends ton article</h1>
         <form onSubmit={handleSubmit}>
           <section className="upload">
-            <div>
-              <input
-                type="file"
-                onChange={(event) => {
-                  setPhoto(event.target.files[0]);
-                }}
-              />
+            <div className="upload-content">
+              <label>
+                <input
+                  type="file"
+                  onChange={(event) => {
+                    setPhoto(event.target.files[0]);
+                  }}
+                />
+              </label>
             </div>
           </section>
           <section className="item-title">

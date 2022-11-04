@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import "./style.scss";
 import axios from "axios";
@@ -29,17 +29,20 @@ const SignIn = ({ handleToken }) => {
   return (
     <>
       <div className="signin-page">
-        <div className="form-container">
+        <div className="form-container-signIn">
+          <h1>Se connecter</h1>
           <form onSubmit={handleSubmit}>
             <input
+              className="inputs-text"
               value={email}
               type="email"
-              placeholder="Email"
+              placeholder="E-mail"
               onChange={(event) => {
                 setEmail(event.target.value);
               }}
             />
             <input
+              className="inputs-text"
               value={password}
               type="password"
               placeholder="Mot de passe"
@@ -47,8 +50,12 @@ const SignIn = ({ handleToken }) => {
                 setPassword(event.target.value);
               }}
             />
-            <input type="submit" value="Se connecter" />
+
+            <input className="login" type="submit" value="Se connecter" />
           </form>
+          <Link to="/signup" className="toSignUp">
+            <span>Pas encore de compte ? Inscris toi !</span>
+          </Link>
         </div>
       </div>
     </>

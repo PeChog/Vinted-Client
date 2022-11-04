@@ -1,0 +1,36 @@
+.publish-page {
+  width: 100%;
+  //   border: solid red 1px;
+  background-color: #f5f6f7;
+  .publish-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90vw;
+    padding-top: 5vh;
+
+    // border: green solid 1px;
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      .upload {
+        height: 25vh;
+        background-color: white;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .upload-content {
+          width: 98%;
+          height: 88%;
+          border: dashed 3px #f5f6f7;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

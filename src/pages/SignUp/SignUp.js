@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./style.scss";
 
 const SignUp = ({ handleToken }) => {
@@ -33,10 +33,12 @@ const SignUp = ({ handleToken }) => {
 
   return (
     <>
-      <div className="signin-page">
-        <div className="form-container">
+      <div className="signup-page">
+        <div className="form-container-signUp">
+          <h1>S'inscrire</h1>
           <form onSubmit={handleSubmit}>
             <input
+              className="signUp-text-inputs"
               type="text"
               placeholder="Nom d'utilisateur"
               onChange={(event) => {
@@ -44,28 +46,43 @@ const SignUp = ({ handleToken }) => {
               }}
             />
             <input
+              className="signUp-text-inputs"
               type="email"
-              placeholder="Email"
+              placeholder="E-mail"
               onChange={(event) => {
                 setEmail(event.target.value);
               }}
             />
             <input
+              className="signUp-text-inputs"
               type="password"
               placeholder="Mot de passe"
               onChange={(event) => {
                 setPassword(event.target.value);
               }}
             />
-            <input
-              type="checkbox"
-              checked={newsLetter}
-              onChange={() => {
-                setNewsLetter(!newsLetter);
-              }}
-            />
-            <input type="submit" value="S'incrire" />
+            <div className="newsletter">
+              <input
+                className="newsletter-checkbox"
+                type="checkbox"
+                checked={newsLetter}
+                onChange={() => {
+                  setNewsLetter(!newsLetter);
+                }}
+              />
+              <span>S'inscrire à notre newsletter</span>
+            </div>
+
+            <p>
+              En m'inscrivant je confirme avoir lu et accepté les Termes &
+              Conditions et Politique de Confidentialité de Vinted. Je confirme
+              avoir au moins 18 ans.
+            </p>
+            <input className="signup" type="submit" value="S'incrire" />
           </form>
+          <Link to="/signin" className="toSignIn">
+            <span>Tu as déjà un compte ? Connecte-toi !</span>
+          </Link>
         </div>
       </div>
     </>
