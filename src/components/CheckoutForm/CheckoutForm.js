@@ -3,7 +3,7 @@ import { useStripe, CardElement, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import "./style.scss";
 
-const CheckoutForm = ({ productName, price }) => {
+const CheckoutForm = ({ productName, price, total }) => {
   const [completed, setCompleted] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
@@ -15,7 +15,7 @@ const CheckoutForm = ({ productName, price }) => {
       const stripeResponse = await stripe.createToken(cardElement, {
         name: "id de l'acheteur",
       });
-      //   console.log(stripeResponse);
+      console.log(stripeResponse);
       const stripeToken = stripeResponse.token.id;
       console.log(stripeToken);
       const response = await axios.post(
@@ -26,8 +26,8 @@ const CheckoutForm = ({ productName, price }) => {
           amount: price,
         }
       );
-      console.log(response.data);
-      if (response.data === "succeeded") {
+
+      if (response.data) {
         setCompleted(true);
       } else {
         alert("Une erreur est survenue au moment du paiement");

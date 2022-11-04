@@ -1,4 +1,4 @@
-// import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { Navigate } from "react-router-dom";
@@ -12,14 +12,13 @@ const stripePromise = loadStripe(
 );
 
 const Payment = ({ userToken }) => {
-  //   const location = useLocation();
-  //   const stripePromise = loadStripe()
-
+  const location = useLocation();
+  const { productName, price } = location.state;
   return userToken ? (
     <div>
       je suis la page paiement
       <Elements stripe={stripePromise}>
-        <CheckoutForm />
+        <CheckoutForm productName={productName} price={price} />
       </Elements>
     </div>
   ) : (

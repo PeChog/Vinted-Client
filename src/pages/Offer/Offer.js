@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+
+import { useNavigate, useParams } from "react-router-dom";
 
 import "./style.scss";
 
@@ -8,6 +9,8 @@ const Offer = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
+  const navigate = useNavigate();
+
   // const navigate = useNavigate();
   // console.log(id);
 
@@ -65,15 +68,19 @@ const Offer = () => {
                   {/* )} */}
                   <span>{data.owner.account.username}</span>
                 </div>
-                <Link
-                  to="/payment"
-                  state={{
-                    productName: data.product_name,
-                    price: data.product_price,
+
+                <button
+                  onClick={() => {
+                    navigate("/payment", {
+                      state: {
+                        productName: data.product_name,
+                        price: data.product_price,
+                      },
+                    });
                   }}
                 >
-                  <button>Acheter</button>
-                </Link>
+                  Acheter
+                </button>
               </section>
             </div>
           </section>
