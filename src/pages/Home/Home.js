@@ -31,11 +31,20 @@ const Home = ({ isLoading, data }) => {
               <div className="offer-card" key={offer._id}>
                 <div className="offer-card-container">
                   <div className="user-offer">
-                    {offer.owner && offer.owner.account.avatar && (
-                      <img alt="userImg" src={offer.owner.account.avatar.url} />
+                    {offer?.owner?.account?.avatar ? (
+                      <div className="profil-img">
+                        <img
+                          alt="userImg"
+                          src={offer.owner.account.avatar.url}
+                        />
+                      </div>
+                    ) : (
+                      <div style={{ height: "4vh" }}></div>
                     )}
 
-                    <span>{offer.owner.account.username}</span>
+                    <span>{offer?.owner?.account?.username}</span>
+
+                    {/* <span>{offer.owner.account.username}</span> */}
                   </div>
                   <Link to={`/offer/${offer._id}`}>
                     <img
@@ -46,12 +55,14 @@ const Home = ({ isLoading, data }) => {
                   </Link>
 
                   <div>
-                    <span>{offer.product_price} €</span>
+                    <span style={{ fontSize: "1.0vw" }}>
+                      {offer.product_price} €
+                    </span>
                     {offer.product_details.map((detail, index) => {
                       return (
-                        <div key={index}>
-                          <span>{detail.TAILLE}</span>
-                          <span>{detail.MARQUE}</span>
+                        <div className="infos-item" key={index}>
+                          <span className="infos-item">{detail.TAILLE}</span>
+                          <span className="infos-item">{detail.MARQUE}</span>
                         </div>
                       );
                     })}

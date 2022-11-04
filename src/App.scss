@@ -1,5 +1,15 @@
+@font-face {
+  font-family: "Maison-Neue";
+  src: url("./assets/fonts/FontsFree-Net-Maison-Neue-Book.ttf")
+    format("truetype");
+}
+
 body {
-  font-family: sans-serif;
+  font-family: "Maison-Neue";
+  // font-family: sans-serif;
+  // input {
+  //   font-family: "Maison-Neue";
+  // }
 }
 .container {
   width: 90%;

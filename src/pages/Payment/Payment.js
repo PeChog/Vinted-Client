@@ -15,7 +15,7 @@ const Payment = ({ userToken }) => {
   const location = useLocation();
   const { productName, price } = location.state;
   return userToken ? (
-    <div>
+    <div className="payment-page">
       je suis la page paiement
       <Elements stripe={stripePromise}>
         <CheckoutForm productName={productName} price={price} />

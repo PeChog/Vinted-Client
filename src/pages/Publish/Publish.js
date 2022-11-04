@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style.scss";
 
 const Publish = ({ userToken }) => {
   const [photo, setPhoto] = useState({});
+  const [preview, setPreview] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
@@ -12,8 +14,8 @@ const Publish = ({ userToken }) => {
   const [color, setColor] = useState("");
   const [condition, setCondition] = useState("");
   const [place, setPlace] = useState("");
-  const [price, setPrice] = useState(0);
-  // const [swap, setSwap] = useState(false);
+  const [price, setPrice] = useState("");
+  const [swap, setSwap] = useState(false);
 
   const navigate = useNavigate();
 
@@ -62,14 +64,35 @@ const Publish = ({ userToken }) => {
         <form onSubmit={handleSubmit}>
           <section className="upload">
             <div className="upload-content">
-              <label>
-                <input
-                  type="file"
-                  onChange={(event) => {
-                    setPhoto(event.target.files[0]);
-                  }}
-                />
-              </label>
+              {preview ? (
+                <div className="preview-image">
+                  <img src={preview} alt="pré-visualisation" />
+                  <div
+                    className="remove-img-button"
+                    onClick={() => {
+                      setPreview("");
+                    }}
+                  >
+                    X
+                  </div>
+                </div>
+              ) : (
+                <label className="upload-input-div">
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-plus"
+                    className="plus-icon"
+                  />
+                  Choisir une image
+                  <input
+                    type="file"
+                    className="input-file"
+                    onChange={(event) => {
+                      setPhoto(event.target.files[0]);
+                      setPreview(URL.createObjectURL(event.target.files[0]));
+                    }}
+                  />
+                </label>
+              )}
             </div>
           </section>
           <section className="item-title">
@@ -79,6 +102,7 @@ const Publish = ({ userToken }) => {
                 <input
                   value={title}
                   type="text"
+                  placeholder="ex: Chemise Suzanne verte"
                   onChange={(event) => {
                     setTitle(event.target.value);
                   }}
@@ -87,6 +111,7 @@ const Publish = ({ userToken }) => {
               <div className="describe">
                 <span>Décris ton article</span>
                 <input
+                  placeholder="ex: Superbe chemise Vintage"
                   value={description}
                   type="text"
                   onChange={(event) => {
@@ -102,6 +127,7 @@ const Publish = ({ userToken }) => {
                 <span>Marque</span>
                 <input
                   value={brand}
+                  placeholder="ex: Nike"
                   type="text"
                   onChange={(event) => {
                     setBrand(event.target.value);
@@ -112,6 +138,7 @@ const Publish = ({ userToken }) => {
                 <span>Taille</span>
                 <input
                   value={size}
+                  placeholder="ex: L / 40 / 12"
                   type="text"
                   onChange={(event) => {
                     setSize(event.target.value);
@@ -122,6 +149,7 @@ const Publish = ({ userToken }) => {
                 <span>Couleur</span>
                 <input
                   value={color}
+                  placeholder="ex: Moutarde"
                   type="text"
                   onChange={(event) => {
                     setColor(event.target.value);
@@ -132,6 +160,7 @@ const Publish = ({ userToken }) => {
                 <span>Etat</span>
                 <input
                   value={condition}
+                  placeholder="ex: Très bon état"
                   type="text"
                   onChange={(event) => {
                     setCondition(event.target.value);
@@ -142,6 +171,7 @@ const Publish = ({ userToken }) => {
                 <span>Lieu</span>
                 <input
                   value={place}
+                  placeholder="ex: Paris"
                   type="text"
                   onChange={(event) => {
                     setPlace(event.target.value);
@@ -155,14 +185,16 @@ const Publish = ({ userToken }) => {
               <div className="price">
                 <span>Prix</span>
                 <input
+                  className="price-input"
+                  placeholder="0,00 €"
                   value={price}
-                  type="number"
+                  type="text"
                   onChange={(event) => {
                     setPrice(event.target.value);
                   }}
                 />
               </div>
-              {/* <div>
+              <div className="swap-input">
                 <input
                   type="checkbox"
                   onChange={(event) => {
@@ -170,10 +202,12 @@ const Publish = ({ userToken }) => {
                   }}
                 />
                 <span>Je suis intéressé(e) par les échanges</span>
-              </div> */}
+              </div>
             </div>
           </section>
-          <input type="submit" />
+          <div className="submit-button">
+            <input type="submit" value="Ajouter" />
+          </div>
         </form>
       </div>
     </div>

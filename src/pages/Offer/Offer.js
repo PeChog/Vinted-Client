@@ -66,7 +66,7 @@ const Offer = () => {
                     className="offer-profil-pic"
                   /> */}
                   {/* )} */}
-                  <span>{data.owner.account.username}</span>
+                  <span>{data?.owner?.account?.username}</span>
                 </div>
 
                 <button

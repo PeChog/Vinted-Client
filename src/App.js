@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
@@ -15,7 +15,7 @@ import Payment from "./pages/Payment/Payment";
 
 import "./App.scss";
 
-library.add(faMagnifyingGlass);
+library.add(faMagnifyingGlass, faPlus);
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
@@ -40,6 +40,7 @@ function App() {
       );
       setData(response.data);
       setIsLoading(false);
+      console.log(response.data);
     };
     fetchData();
   }, [search]);

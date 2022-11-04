@@ -1,5 +1,6 @@
 .Home {
   .banner {
+    padding-top: 7vh;
     // border: solid green 2px;
     height: 65vh;
     display: flex;
@@ -31,10 +32,10 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-          gap: 5vh;
+          gap: 3vh;
           .title-adv {
             width: 90%;
-            font-size: 40px;
+            font-size: 2.5vw;
           }
           .button-adv {
             width: 100%;
@@ -43,6 +44,7 @@
             color: white;
             border: none;
             border-radius: 5px;
+            font-size: 1.1vw;
           }
         }
       }
@@ -61,16 +63,27 @@
       height: 55vh;
       // border: solid green 1px;
       .offer-card-container {
+        span {
+          font-size: 0.9vw;
+        }
         .user-offer {
           display: flex;
           align-items: center;
           gap: 0.5vw;
+          span {
+            font-size: 0.9vw;
+          }
+
           img {
             object-fit: cover;
             border-radius: 50%;
             width: 2vw;
             height: 4vh;
           }
+        }
+        .infos-item {
+          color: gray;
+          margin-top: 0.2vh;
         }
         .offer-pic {
           margin-top: 1vh;
