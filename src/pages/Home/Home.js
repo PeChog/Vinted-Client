@@ -4,7 +4,7 @@ import Banner from "../../assets/images/banner.jpg";
 
 import "./style.scss";
 
-const Home = ({ isLoading, data }) => {
+const Home = ({ isLoading, data, setSort, sort }) => {
   return isLoading ? (
     <div>en cours de chargement</div>
   ) : (
@@ -24,6 +24,18 @@ const Home = ({ isLoading, data }) => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="container toggle">
+          <span>Trier par prix: </span>
+          <input
+            type="checkbox"
+            // checked={sort}
+            name="price"
+            onClick={() => {
+              sort ? setSort(false) : setSort(true);
+            }}
+          />
+          {sort ? <span>⇡</span> : <span>⇣</span>}
         </div>
         <div className="offers container">
           {data.offers.map((offer) => {

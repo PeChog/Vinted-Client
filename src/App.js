@@ -22,6 +22,7 @@ function App() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [sort, setSort] = useState(false);
 
   const handleToken = (token) => {
     if (token) {
@@ -36,14 +37,16 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
+        `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}&sort=${
+          !sort ? "price-desc" : "price-asc"
+        }`
       );
       setData(response.data);
       setIsLoading(false);
       console.log(response.data);
     };
     fetchData();
-  }, [search]);
+  }, [search, sort]);
 
   return (
     <Router>
@@ -53,7 +56,17 @@ function App() {
         setSearch={setSearch}
       />
       <Routes>
-        <Route path="/" element={<Home data={data} isLoading={isLoading} />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              data={data}
+              isLoading={isLoading}
+              setSort={setSort}
+              sort={sort}
+            />
+          }
+        />
         <Route path="/signup" element={<SignUp handleToken={handleToken} />} />
         <Route path="/signin" element={<SignIn handleToken={handleToken} />} />
         <Route path="/offer/:id" element={<Offer />} />
