@@ -122,8 +122,6 @@
               outline: none;
               height: 90%;
             }
-
-            // border: solid yellow 1px;
           }
         }
       }
@@ -221,9 +219,12 @@
           }
         }
         .swap-input {
-          font-size: 1.2vw;
+          font-size: 1.1vw;
           margin-left: 48.1vw;
           margin-top: 2vh;
+          span {
+            margin-left: 0.5vw;
+          }
         }
       }
     }
@@ -234,8 +235,8 @@
       width: 100%;
       margin-top: 2vh;
       margin-bottom: 2vh;
+
       input {
-        justify-self: flex-end;
         height: 5vh;
         background-color: #007783;
         color: white;
