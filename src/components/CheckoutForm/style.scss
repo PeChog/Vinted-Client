@@ -20,6 +20,7 @@
   color: white;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .payment-succeeded-container {
@@ -35,5 +36,6 @@
     text-decoration: none;
     color: #007783;
     margin-top: 0.5vh;
+    cursor: pointer;
   }
 }
