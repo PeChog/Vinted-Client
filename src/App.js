@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass, faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -50,6 +51,11 @@ function App() {
 
   return (
     <Router>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Vinted Clone</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <Header
         handleToken={handleToken}
         userToken={userToken}
