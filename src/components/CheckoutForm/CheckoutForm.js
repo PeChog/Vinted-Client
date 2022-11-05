@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useStripe, CardElement, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import "./style.scss";
@@ -7,7 +8,6 @@ const CheckoutForm = ({ productName, price, totalPrice }) => {
   const [completed, setCompleted] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-  console.log(totalPrice);
 
   const handleSubmit = async (event) => {
     try {
@@ -39,12 +39,25 @@ const CheckoutForm = ({ productName, price, totalPrice }) => {
   };
 
   return completed ? (
-    <p>Paiment effectué</p>
+    <div className="payment-succeeded-container">
+      <div className="payment-succeeded">Paiment effectué !</div>
+      <div style={{ color: "gray", marginTop: "2vh" }}>
+        Un e-mail va vous être envoyé avec le récapitulatif de commande.
+      </div>
+      <Link to="/" className="payment-home-link">
+        Cliquez ici pour continuer vos achats
+      </Link>
+    </div>
   ) : (
-    <form onSubmit={handleSubmit}>
-      <CardElement />
-      <input type="submit" />
-    </form>
+    <>
+      <div className="payment-to-pay"></div>
+      <form onSubmit={handleSubmit}>
+        <div className="card-infos">
+          <CardElement className="card-elem" />
+        </div>
+        <input type="submit" className="pay-button" value="Pay" />
+      </form>
+    </>
   );
 };
 export default CheckoutForm;

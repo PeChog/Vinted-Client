@@ -1,0 +1,38 @@
+.item-summary {
+  background-color: white;
+  height: 75vh;
+  width: 42vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .item-summary-container {
+    // border: solid red 1px;
+    width: 90%;
+    height: 90%;
+    .checkout-details {
+      height: 28%;
+      border-bottom: solid lightgray 1px;
+      margin-top: 6vh;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5vh;
+      .detail-display {
+        display: flex;
+        justify-content: space-between;
+        color: rgb(108, 107, 107);
+      }
+    }
+    .checkout-total {
+      height: 28%;
+      border-bottom: solid lightgray 1px;
+      margin-top: 6vh;
+      display: flex;
+      flex-direction: column;
+      gap: 6vh;
+      .detail-display {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

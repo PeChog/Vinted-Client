@@ -68,7 +68,7 @@ const Home = ({ isLoading, data, setSort, sort }) => {
 
                   <div>
                     <span style={{ fontSize: "1.0vw" }}>
-                      {offer.product_price} €
+                      {offer.product_price.toFixed(2)} €
                     </span>
                     {offer.product_details.map((detail, index) => {
                       return (

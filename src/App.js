@@ -22,7 +22,7 @@ function App() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [sort, setSort] = useState(false);
+  const [sort, setSort] = useState(true);
 
   const handleToken = (token) => {
     if (token) {

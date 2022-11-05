@@ -3,4 +3,9 @@
   background-color: #f5f6f7;
   height: 93vh;
   width: 100vw;
+  .payment-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 6vh;
+  }
 }

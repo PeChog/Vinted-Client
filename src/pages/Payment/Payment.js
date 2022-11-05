@@ -1,27 +1,26 @@
 import { useLocation } from "react-router-dom";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
 import { Navigate } from "react-router-dom";
 
-import CheckoutForm from "../../components/CheckoutForm/CheckoutForm";
+import ItemSummary from "../../components/ItemSummary/ItemSummary";
 
 import "./style.scss";
-
-const stripePromise = loadStripe(
-  "pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP"
-);
 
 const Payment = ({ userToken }) => {
   const location = useLocation();
   const { productName, price, shippingFee, protectionFee, totalPrice } =
     location.state;
-  console.log(totalPrice);
+
   return userToken ? (
     <div className="payment-page">
-      je suis la page paiement
-      <Elements stripe={stripePromise}>
-        <CheckoutForm productName={productName} totalPrice={totalPrice} />
-      </Elements>
+      <div className="payment-container">
+        <ItemSummary
+          price={price}
+          protectionFee={protectionFee}
+          shippingFee={shippingFee}
+          totalPrice={totalPrice}
+          productName={productName}
+        />
+      </div>
     </div>
   ) : (
     <Navigate to="/signin" />
