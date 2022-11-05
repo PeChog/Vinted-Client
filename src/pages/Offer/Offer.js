@@ -11,22 +11,14 @@ const Offer = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // const price = data.product_price;
+  const price = data.product_price;
   // console.log(data.product_price);
-
-  // const shippingFee = (protectionFee * 2).toFixed(2);
-  // const total = Number(price) + Number(protectionFee) + Number(shippingFee);
-  // console.log(total);
-
-  // const protectionFee = (price / 10).toFixed(2);
+  const protectionFee = (price / 10).toFixed(2);
   // console.log(protectionFee);
-  // const shippingFee = (protectionFee * 2).toFixed(2);
+  const shippingFee = (protectionFee * 2).toFixed(2);
   // console.log(shippingFee);
-  // const total = Number(price) + Number(protectionFee) + Number(shippingFee);
+  const total = Number(price) + Number(protectionFee) + Number(shippingFee);
   // console.log(total);
-
-  // const navigate = useNavigate();
-  // console.log(id);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -94,9 +86,9 @@ const Offer = () => {
                       state: {
                         productName: data.product_name,
                         price: data.product_price,
-                        // shippingFee: shippingFee,
-                        // protectionFee: protectionFee,
-                        // totalPrice: total,
+                        shippingFee: shippingFee,
+                        protectionFee: protectionFee,
+                        totalPrice: total,
                       },
                     });
                   }}
