@@ -19,7 +19,7 @@ library.add(faMagnifyingGlass, faPlus);
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState(false);
@@ -43,7 +43,7 @@ function App() {
       );
       setData(response.data);
       setIsLoading(false);
-      console.log(response.data);
+      // console.log(response.data);
     };
     fetchData();
   }, [search, sort]);

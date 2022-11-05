@@ -32,6 +32,17 @@
         .top-description-section {
           height: 50%;
           border-bottom: solid lightgray 0.5px;
+          .price-offer-page {
+            font-size: 1.6vw;
+          }
+          .offer-page-details-container {
+            margin-top: 5vh;
+            .offer-page-details {
+              display: flex;
+              justify-content: space-between;
+              margin-top: 1vh;
+            }
+          }
         }
         .bottom-description-section {
           height: 50%;
@@ -47,6 +58,7 @@
             height: 4vh;
           }
           button {
+            margin-top: 6vh;
             width: 100%;
             height: 5vh;
             background-color: #007783;

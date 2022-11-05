@@ -3,10 +3,11 @@ import { useStripe, CardElement, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import "./style.scss";
 
-const CheckoutForm = ({ productName, price, total }) => {
+const CheckoutForm = ({ productName, price, totalPrice }) => {
   const [completed, setCompleted] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+  console.log(totalPrice);
 
   const handleSubmit = async (event) => {
     try {
@@ -23,7 +24,7 @@ const CheckoutForm = ({ productName, price, total }) => {
         {
           token: stripeToken,
           title: productName,
-          amount: price,
+          amount: totalPrice,
         }
       );
 

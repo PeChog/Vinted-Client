@@ -13,12 +13,14 @@ const stripePromise = loadStripe(
 
 const Payment = ({ userToken }) => {
   const location = useLocation();
-  const { productName, price } = location.state;
+  const { productName, price, shippingFee, protectionFee, totalPrice } =
+    location.state;
+  console.log(totalPrice);
   return userToken ? (
     <div className="payment-page">
       je suis la page paiement
       <Elements stripe={stripePromise}>
-        <CheckoutForm productName={productName} price={price} />
+        <CheckoutForm productName={productName} totalPrice={totalPrice} />
       </Elements>
     </div>
   ) : (
