@@ -25,18 +25,28 @@ const Home = ({ isLoading, data, setSort, sort }) => {
             </div>
           </div>
         </div>
-        <div className="container toggle">
-          <span>Trier par prix: </span>
-          <input
-            type="checkbox"
-            // checked={sort}
-            name="price"
-            onClick={() => {
-              sort ? setSort(false) : setSort(true);
-            }}
-          />
-          {sort ? <span>⇡</span> : <span>⇣</span>}
+
+        <div className="toggle container">
+          <span>Trier par prix:</span>
+          <div class="onoffswitch">
+            <input
+              type="checkbox"
+              name="onoffswitch"
+              className="onoffswitch-checkbox"
+              id="myonoffswitch"
+              tabindex="0"
+              checked={sort}
+              onClick={() => {
+                sort ? setSort(false) : setSort(true);
+              }}
+            />
+            <label className="onoffswitch-label" for="myonoffswitch">
+              <span className="onoffswitch-inner"></span>
+              <span className="onoffswitch-switch"></span>
+            </label>
+          </div>
         </div>
+
         <div className="offers container">
           {data.offers.map((offer) => {
             return (
